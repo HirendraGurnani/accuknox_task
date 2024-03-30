@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Accuknox Assignment</title>
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        font-size: 20px;
+      }
+
+      input,
+      button {
+        width: 45px;
+        margin-left: 5px;
+        font-size: 20px;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      input[type="color"] {
+        height: 27px;
+      }
+
+      input[type="number"] {
+        width: 38px;
+        text-align: center;
+      }
+
+      .grid-item-input,
+      .grid-item-text {
+        padding: 10px;
+        border: 1px solid #b3b0b0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item-input">
+        <button onclick="textBold(0)"><b>B</b></button>
+        <button onclick="textItalic(0)"><i>I</i></button>
+        <button onclick="textUnderline(0)"><u>U</u></button>
+        <input
+          type="number"
+          onchange="changeFontSize(0, this.value)"
+          value="20"
+        />
+        <input
+          type="color"
+          onchange="changeColor(0, this.value)"
+          value="#000000"
+        />
+      </div>
+      <div class="grid-item-text">
+        He's not the sharpest knife in the drawer.
+      </div>
+      <div class="grid-item-input">
+        <button onclick="textBold(1)"><b>B</b></button>
+        <button onclick="textItalic(1)"><i>I</i></button>
+        <button onclick="textUnderline(1)"><u>U</u></button>
+        <input
+          type="number"
+          onchange="changeFontSize(1, this.value)"
+          value="20"
+        />
+        <input
+          type="color"
+          onchange="changeColor(1, this.value)"
+          value="#000000"
+        />
+      </div>
+      <div class="grid-item-text">
+        The big building was blazing with lights.
+      </div>
+      <div class="grid-item-input">
+        <button onclick="textBold(2)"><b>B</b></button>
+        <button onclick="textItalic(2)"><i>I</i></button>
+        <button onclick="textUnderline(2)"><u>U</u></button>
+        <input
+          type="number"
+          onchange="changeFontSize(2, this.value)"
+          value="20"
+        />
+        <input
+          type="color"
+          onchange="changeColor(2, this.value)"
+          value="#000000"
+        />
+      </div>
+      <div class="grid-item-text">Now you must answer some big questions.</div>
+      <div class="grid-item-input">
+        <button onclick="textBold(3)"><b>B</b></button>
+        <button onclick="textItalic(3)"><i>I</i></button>
+        <button onclick="textUnderline(3)"><u>U</u></button>
+        <input
+          type="number"
+          onchange="changeFontSize(3, this.value)"
+          value="20"
+        />
+        <input
+          type="color"
+          onchange="changeColor(3, this.value)"
+          value="#000000"
+        />
+      </div>
+      <div class="grid-item-text">Get Your Act Together!</div>
+    </div>
+
+    <script>
+      const targetElement = document.querySelectorAll(".grid-item-text");
+      function textBold(row) {
+        const currentWeight = targetElement[row].style.fontWeight;
+        targetElement[row].style.fontWeight =
+          currentWeight === "bold" ? "normal" : "bold";
+      }
+
+      function textItalic(row) {
+        const currentStyle = targetElement[row].style.fontStyle;
+        targetElement[row].style.fontStyle =
+          currentStyle === "italic" ? "normal" : "italic";
+      }
+
+      function textUnderline(row) {
+        const currentDecoration = targetElement[row].style.textDecoration;
+        targetElement[row].style.textDecoration = currentDecoration.includes(
+          "underline"
+        )
+          ? "none"
+          : "underline";
+      }
+
+      function changeFontSize(row, size) {
+        targetElement[row].style.fontSize = size + "px";
+      }
+
+      function changeColor(row, color) {
+        targetElement[row].style.color = color;
+      }
+    </script>
+  </body>
+</html>
